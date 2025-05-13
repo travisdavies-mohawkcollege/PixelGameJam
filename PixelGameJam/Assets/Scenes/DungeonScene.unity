@@ -846,6 +846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DungeonRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4904214752352004848, guid: 0f7fa08a84e7db4418ef549ef4ec303b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8105371186783161866, guid: 0f7fa08a84e7db4418ef549ef4ec303b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4123619
