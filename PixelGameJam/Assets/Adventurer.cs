@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Adventurer : MonoBehaviour
 {
-    public string names[] names = new "
-        ;
+    string[] names = new string[] {"Jinny", "Jobert", "Darina", "Blair", "Ephi", "Travis", "Corbin", "Terra", "Alfabet", "Gru", "Michael", "Tristana", "Caitlyn", "Vladimir", "Darius"};
+    string[] classes = new string[] { "Mage", "Rogue", "Warrior", "Archer" };
+    //Runs once
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    //Runs once per frame
     void Update()
     {
         
