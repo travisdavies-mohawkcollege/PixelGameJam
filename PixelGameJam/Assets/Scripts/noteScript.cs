@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Adventurer : MonoBehaviour
+public class noteScript : MonoBehaviour
 {
     string[] names = new string[] { "Jinny", "Jobert", "Darina", "Blair", "Ephi", "Travis", "Corbin", "Terra", "Alfa", "Gru", "Mike", "Trist", "Kate", "Vlad", "Cookie" };
     string[] classes = new string[] { "Mage", "Rogue", "Fighter", "Archer" };
@@ -60,5 +60,8 @@ public class Adventurer : MonoBehaviour
         noteLine5.text = "Int " + (intl);
         noteLine6.text = "$$ " + (greed);
     }
-
+    public void WasClicked()
+    {
+        Destroy(gameObject);
+    }
 }

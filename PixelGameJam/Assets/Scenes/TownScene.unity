@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123375739}
   m_Layer: 5
-  m_Name: sp1
+  m_Name: Spawn Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244099530}
   m_Layer: 5
-  m_Name: sp2
+  m_Name: Spawn Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478064508}
   m_Layer: 5
-  m_Name: sp4
+  m_Name: Spawn Point 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 682388006}
   - component: {fileID: 682388005}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 715171257}
   - component: {fileID: 715171256}
   m_Layer: 5
-  m_Name: Cork Board Screen
+  m_Name: Cork Board Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,8 +429,8 @@ RectTransform:
   - {fileID: 756897149}
   - {fileID: 123375739}
   - {fileID: 244099530}
-  - {fileID: 478064508}
   - {fileID: 874780454}
+  - {fileID: 478064508}
   - {fileID: 747673038}
   - {fileID: 1674454489}
   m_Father: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747673038}
   m_Layer: 5
-  m_Name: sp5
+  m_Name: Spawn Point 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 756897151}
   - component: {fileID: 756897150}
   m_Layer: 5
-  m_Name: Cork Board Screen
+  m_Name: Cork Board Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 874780454}
   m_Layer: 5
-  m_Name: sp3
+  m_Name: Spawn Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,7 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1674454489}
   m_Layer: 5
-  m_Name: sp6
+  m_Name: Spawn Point 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880245875}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -702,6 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   page: {fileID: 6362038403155322206, guid: 03fcad2cc82055b459968b0676165ac9, type: 3}
+  parent: {fileID: 715171255}
   spawnPoints:
   - {fileID: 123375739}
   - {fileID: 244099530}
@@ -709,69 +710,10 @@ MonoBehaviour:
   - {fileID: 478064508}
   - {fileID: 747673038}
   - {fileID: 1674454489}
---- !u!1001 &4435562312767029001
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2998576824181202526, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_Name
-      value: Adventurer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.0185474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5370819339445103380, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 682388008}
-  - {fileID: 715171259}
   - {fileID: 1880245878}
-  - {fileID: 4435562312767029001}
+  - {fileID: 715171259}
