@@ -19,6 +19,7 @@ public class DungeonManager : MonoBehaviour
     float roomCentre;
     float roomOffsetX;
     List<GameObject> rooms = new List<GameObject>();
+    Vector3 entrancePos = new Vector3(-9.85f, 0, 0);
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class DungeonManager : MonoBehaviour
         roomWidth = dungeonPrefab.transform.localScale.x;
         roomHeight = dungeonPrefab.transform.localScale.y;
         roomCentre = roomWidth / 2;
+        entrance.transform.position = entrancePos;
         
     }
 
@@ -40,20 +42,19 @@ public class DungeonManager : MonoBehaviour
         {
             CreateRoom();
         }
+
     }
 
     void CreateRoom()
     {
         //Create a new room
         roomCount += 1;
+        entrancePos.x -=3.28f;
+        entrance.transform.position = entrancePos;
         roomOffsetX = nextRoomMarker.transform.position.x;
-        float entranceX = entrance.transform.position.x;
-        entranceX += roomWidth;
-        
         GameObject newRoom = Instantiate(dungeonPrefab, new Vector3(roomOffsetX, 0, 0), Quaternion.identity);
         rooms.Add(newRoom);
-        Vector3 newEntrancePos = new Vector3(entranceX, 0, 0);
-        entrance.transform.position = newEntrancePos;
+      
 
     }
 }
