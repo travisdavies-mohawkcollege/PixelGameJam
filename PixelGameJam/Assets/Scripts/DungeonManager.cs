@@ -6,6 +6,7 @@ public class DungeonManager : MonoBehaviour
 {
     //Declare Variables
     public GameObject dungeonPrefab;
+    public Camera dungeonCam;
     public GameObject hoardPrefab;
     public GameObject playerRoomPrefab;
     public GameObject nextRoomMarker;
@@ -14,12 +15,18 @@ public class DungeonManager : MonoBehaviour
     int roomsOwned;
     float roomWidth;
     float roomHeight;
-    bool isLocked;
+    
     bool hasTrap;
     float roomCentre;
     float roomOffsetX;
     List<GameObject> rooms = new List<GameObject>();
     Vector3 entrancePos = new Vector3(-9.85f, 0, 0);
+    //Variables for locked rooms
+    bool isLocked;
+    int unlockCost;
+    //mask layer for deciding whats interactable
+    public LayerMask raycastLayerMask;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +48,18 @@ public class DungeonManager : MonoBehaviour
         if (roomCount <= roomsOwned)
         {
             CreateRoom();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Make a ray to mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //see if ray hit something on the mask layer
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, raycastLayerMask);
+            if (hit)
+            {
+                Debug.Log("You clicked " +hit.collider.tag);
+            }
+
         }
 
     }
