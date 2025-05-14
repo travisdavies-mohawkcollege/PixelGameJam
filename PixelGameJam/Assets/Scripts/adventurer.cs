@@ -10,8 +10,17 @@ public class adventurer : MonoBehaviour
     public int agil;
     public int strg;
     public int greed;
-    // Start is called before the first frame update
-   public void findStats(noteScript data)
+    public Sprite mage;
+    public Sprite rogue;
+    public Sprite fighter;
+    public Sprite archer;
+    private SpriteRenderer adventurer_spriteRenderer;
+    private void Awake()
+    {
+        // Fetch the SpriteRenderer from the GameObject
+        adventurer_spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    public void findStats(noteScript data)
     {
         Name = data.Name;
         Class = data.Class;
@@ -19,5 +28,24 @@ public class adventurer : MonoBehaviour
         agil = data.agil;
         strg = data.strg;
         greed = data.greed;
+    }
+    private void Start()
+    {
+        if (Class == "Mage")
+        {
+            adventurer_spriteRenderer.sprite = mage;
+        }
+        else if (Class == "Rogue")
+        {
+            adventurer_spriteRenderer.sprite = rogue;
+        }
+        else if (Class == "Fighter")
+        {
+            adventurer_spriteRenderer.sprite = fighter;
+        }
+        else if (Class == "Archer")
+        {
+            adventurer_spriteRenderer.sprite = archer;
+        }
     }
 }

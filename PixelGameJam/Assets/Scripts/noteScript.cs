@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class noteScript : MonoBehaviour
 {
-    string[] names = new string[] { "Jinny", "Jobert", "Darina", "Blair", "Ephi", "Travis", "Corbin", "Terra", "Alfa", "Gru", "Mike", "Trist", "Kate", "Vlad", "Cookie" };
+    string[] names = new string[] { "Jinny", "Jobert", "Darrow", "Blair", "Ephi", "Travis", "Sevro", "Terra", "Alfa", "Gru", "Mike", "Trist", "Kate", "Vlad", "Cookie" };
     string[] classes = new string[] { "Mage", "Rogue", "Fighter", "Archer" };
     public string Name;
     public string Class;
