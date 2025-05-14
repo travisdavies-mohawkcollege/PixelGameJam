@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class noteScript : MonoBehaviour
     public Text noteLine4;
     public Text noteLine5;
     public Text noteLine6;
+    public GameObject Adventurer;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -60,8 +63,13 @@ public class noteScript : MonoBehaviour
         noteLine5.text = "Int " + (intl);
         noteLine6.text = "$$ " + (greed);
     }
+    //Function to create adventurer, pass variables, and destroy note
     public void WasClicked()
     {
+        noteScript noteData = this;
+        GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.position, spawnPoint.rotation);
+        adventurer adventurer = adventurerGO.GetComponent<adventurer>();
+        adventurer.findStats(noteData);
         Destroy(gameObject);
     }
 }

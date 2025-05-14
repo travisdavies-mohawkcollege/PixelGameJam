@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5370819339445103380}
   - component: {fileID: 80420826644525251}
+  - component: {fileID: 4564761848248306448}
   m_Layer: 0
   m_Name: Adventurer
   m_TagString: Untagged
@@ -84,3 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4564761848248306448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998576824181202526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a941f419aa3704cbadd78f3fd2bb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  Class: 
+  intl: 0
+  agil: 0
+  strg: 0
+  greed: 0

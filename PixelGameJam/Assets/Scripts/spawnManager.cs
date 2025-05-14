@@ -9,14 +9,15 @@ public class spawnManager : MonoBehaviour
     public GameObject page;
     public GameObject parent;
     public Transform[] spawnPoints;
+    public GameObject[] adventurers;
     private int i = 0;
-    //Runs once
+    //Runs once telling the spawn function to run every 5 seconds
     void Start()
     {
         InvokeRepeating("Spawn", 0f, 5f);
     }
 
-    //Runs every 30 secconds
+    //Runs every 30 secconds instantiating a page prefab
     void Spawn()
     {
         if (spawnPoints.Length == 0 || page == null) return;
@@ -27,5 +28,5 @@ public class spawnManager : MonoBehaviour
     }
 
     
-
+        
 }
