@@ -23,7 +23,7 @@ public class noteScript : MonoBehaviour
     public Text noteLine5;
     public Text noteLine6;
     public GameObject Adventurer;
-    public Transform spawnPoint;
+    public GameObject spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +67,7 @@ public class noteScript : MonoBehaviour
     public void WasClicked()
     {
         noteScript noteData = this;
-        GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.position, spawnPoint.rotation);
+        GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
         adventurer adventurer = adventurerGO.GetComponent<adventurer>();
         adventurer.findStats(noteData);
         Destroy(gameObject);
