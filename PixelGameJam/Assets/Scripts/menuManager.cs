@@ -9,9 +9,11 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingMenu;
     public GameObject pauseMenu;
+    public GameObject rooms;
     public bool boardOpen;
     public bool settingsOpen;
     public bool pauseOpen;
+    public bool roomsOn;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,14 @@ public class MenuManager : MonoBehaviour
         dungeonUI.alpha = 0f;   //sets visibity to 100% translucent              
         dungeonUI.interactable = false; //these 2 lines make it unclickable
         dungeonUI.blocksRaycasts = false;
+        rooms.SetActive(false);
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
         settingMenu.SetActive(false);
         boardOpen = false;
         settingsOpen = false;
         pauseOpen = false;
+        roomsOn = false;
         Time.timeScale = 0f;
     }
     public void OpenBoard()
@@ -65,12 +69,14 @@ public class MenuManager : MonoBehaviour
         dungeonUI.alpha = 1f;   //sets visibity to 100% translucent    
         dungeonUI.interactable = true;    //these 2 lines make it clickable  
         dungeonUI.blocksRaycasts = true;
+        rooms.SetActive(true);
         pauseMenu.SetActive(false);
         mainMenu.SetActive(false);
         settingMenu.SetActive(false);
         boardOpen = false;
         settingsOpen = false;
         pauseOpen = false;
+        roomsOn = true;
         Time.timeScale = 1f;
     }
 
@@ -86,11 +92,14 @@ public class MenuManager : MonoBehaviour
             dungeonUI.blocksRaycasts = false;
             pauseMenu.SetActive(false);
             mainMenu.SetActive(false);
+            rooms.SetActive(false);
             settingMenu.SetActive(true);
+            roomsOn = false;
             boardOpen = false;
             settingsOpen = true;
             pauseOpen = true;
             Time.timeScale = 0f;
+
         }
 
         else
@@ -104,6 +113,8 @@ public class MenuManager : MonoBehaviour
             pauseMenu.SetActive(false);
             mainMenu.SetActive(false);
             settingMenu.SetActive(false);
+            rooms.SetActive(true);
+            roomsOn = true;
             boardOpen = false;
             settingsOpen = false;
             pauseOpen = false;
@@ -129,6 +140,8 @@ public class MenuManager : MonoBehaviour
             pauseMenu.SetActive(true);
             mainMenu.SetActive(false);
             settingMenu.SetActive(false);
+            rooms.SetActive(false);
+            roomsOn = false;
             boardOpen = false;
             settingsOpen = false;
             pauseOpen = true;
@@ -146,6 +159,8 @@ public class MenuManager : MonoBehaviour
             pauseMenu.SetActive(false);
             mainMenu.SetActive(false);
             settingMenu.SetActive(false);
+            rooms.SetActive(true);
+            roomsOn = true;
             boardOpen = false;
             settingsOpen = false;
             pauseOpen = false;
