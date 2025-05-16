@@ -2,20 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class menuManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     public CanvasGroup adventurerBoard;
     public CanvasGroup dungeonUI;
-    public bool isOpen;
+    public GameObject mainMenu;
+    public GameObject settingMenu;
+    public GameObject pauseMenu;
+    public bool boardOpen;
+    public bool settingsOpen;
+    public bool pauseOpen;
     // Start is called before the first frame update
     void Start()
     {
-        adventurerBoard.alpha = 0f; //sets visibity to 100% translucent    
-        isOpen = false;
+        adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+        adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+        adventurerBoard.blocksRaycasts = false;
+        dungeonUI.alpha = 0f;   //sets visibity to 100% translucent              
+        dungeonUI.interactable = false; //these 2 lines make it unclickable
+        dungeonUI.blocksRaycasts = false;
+        pauseMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        settingMenu.SetActive(false);
+        boardOpen = false;
+        settingsOpen = false;
+        pauseOpen = false;
+        Time.timeScale = 0f;
     }
-    public void openBoard()
+    public void OpenBoard()
     {
-        if (isOpen == false)
+        if (boardOpen == false)
         {
             adventurerBoard.alpha = 1f;   //sets visibity to 100% opaque              
             adventurerBoard.interactable = true;    //these 2 lines make it clickable  
@@ -23,7 +39,7 @@ public class menuManager : MonoBehaviour
             dungeonUI.alpha = 0f;   //sets visibity to 100% translucent              
             dungeonUI.interactable = false; //these 2 lines make it unclickable
             dungeonUI.blocksRaycasts = false;
-            isOpen = true;
+            boardOpen = true;
             //Time.timeScale = 0f; Pauses time but I think we want time to keep going in town
 
         }
@@ -35,10 +51,115 @@ public class menuManager : MonoBehaviour
             dungeonUI.alpha = 1f;   //sets visibity to 100% opaque              
             dungeonUI.interactable = true;    //these 2 lines make it clickable  
             dungeonUI.blocksRaycasts = true;
-            isOpen = false;
-            //Other useful code
+            boardOpen = false;
+            //Other useful code                 
             //Time.timeScale = 0f               (sets time to 0%)
             //(GameObject).SetActive(true);     (sets object to inactive)    
         }
+    }
+    public void StartGame()
+    {
+        adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+        adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+        adventurerBoard.blocksRaycasts = false;
+        dungeonUI.alpha = 1f;   //sets visibity to 100% translucent    
+        dungeonUI.interactable = true;    //these 2 lines make it clickable  
+        dungeonUI.blocksRaycasts = true;
+        pauseMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        settingMenu.SetActive(false);
+        boardOpen = false;
+        settingsOpen = false;
+        pauseOpen = false;
+        Time.timeScale = 1f;
+    }
+
+    public void SettingsPressed()
+    {
+        if (settingsOpen == false)
+        {
+            adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+            adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+            adventurerBoard.blocksRaycasts = false;
+            dungeonUI.alpha = 0f;   //sets visibity to 100% translucent    
+            dungeonUI.interactable = false;    //these 2 lines make it clickable  
+            dungeonUI.blocksRaycasts = false;
+            pauseMenu.SetActive(false);
+            mainMenu.SetActive(false);
+            settingMenu.SetActive(true);
+            boardOpen = false;
+            settingsOpen = true;
+            pauseOpen = true;
+            Time.timeScale = 0f;
+        }
+
+        else
+        {
+            adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+            adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+            adventurerBoard.blocksRaycasts = false;
+            dungeonUI.alpha = 1f;   //sets visibity to 100% translucent    
+            dungeonUI.interactable = true;    //these 2 lines make it clickable  
+            dungeonUI.blocksRaycasts = true;
+            pauseMenu.SetActive(false);
+            mainMenu.SetActive(false);
+            settingMenu.SetActive(false);
+            boardOpen = false;
+            settingsOpen = false;
+            pauseOpen = false;
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PauseGame()
+    {
+        if (pauseOpen == false)
+        {
+            adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+            adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+            adventurerBoard.blocksRaycasts = false;
+            dungeonUI.alpha = 0f;   //sets visibity to 100% translucent    
+            dungeonUI.interactable = false;    //these 2 lines make it clickable  
+            dungeonUI.blocksRaycasts = false;
+            pauseMenu.SetActive(true);
+            mainMenu.SetActive(false);
+            settingMenu.SetActive(false);
+            boardOpen = false;
+            settingsOpen = false;
+            pauseOpen = true;
+            Time.timeScale = 0f;
+        }
+        
+        else 
+        {
+            adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              
+            adventurerBoard.interactable = false;    //these 2 lines make it clickable  
+            adventurerBoard.blocksRaycasts = false;
+            dungeonUI.alpha = 1f;   //sets visibity to 100% translucent    
+            dungeonUI.interactable = true;    //these 2 lines make it clickable  
+            dungeonUI.blocksRaycasts = true;
+            pauseMenu.SetActive(false);
+            mainMenu.SetActive(false);
+            settingMenu.SetActive(false);
+            boardOpen = false;
+            settingsOpen = false;
+            pauseOpen = false;
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void OnVolumeUp()
+    {
+        AudioListener.volume += 10;
+    }
+
+    public void OnVolumeDown()
+    {
+        AudioListener.volume -= 10;
     }
 }

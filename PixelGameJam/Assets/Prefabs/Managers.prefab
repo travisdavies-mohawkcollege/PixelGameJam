@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2753868418621651417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4548244532680594828}
+  - component: {fileID: 1226054579968467757}
+  - component: {fileID: 5293404975543171344}
+  - component: {fileID: 2059345413103325322}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4548244532680594828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753868418621651417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226054579968467757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753868418621651417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b942217186fb1d4a8c6cfb21bc276f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonPrefab: {fileID: 8661451812074897649, guid: fad37abfc7a0cf849a8c62f0da7bb2a4, type: 3}
+  dungeonCam: {fileID: 0}
+  hoardPrefab: {fileID: 3691822374516847073, guid: bcd6ff65feefe8145b8184dd70fc984d, type: 3}
+  playerRoomPrefab: {fileID: 3691822374516847073, guid: bcd6ff65feefe8145b8184dd70fc984d, type: 3}
+  nextRoomMarker: {fileID: 0}
+  entrance: {fileID: 0}
+  roomLock: {fileID: -2253911629886400664, guid: 7a62b77778af52a4ebdf0e4862022059, type: 3}
+  roomCount: 0
+  roomsOwned: 0
+  roomWidth: 0
+  cameraClampLeft: 0
+  entrancePos: {x: -9.85, y: 0, z: 0}
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &5293404975543171344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753868418621651417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a91a49f9a89f134dafc996a76c9bdee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  page: {fileID: 6362038403155322206, guid: 03fcad2cc82055b459968b0676165ac9, type: 3}
+  parent: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pages: []
+--- !u!114 &2059345413103325322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753868418621651417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e69b5ec558c264ea1ed56c8df67332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventurerBoard: {fileID: 0}
+  dungeonUI: {fileID: 0}
+  mainMenu: {fileID: 0}
+  settingMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  boardOpen: 0
+  settingsOpen: 0
+  pauseOpen: 0
