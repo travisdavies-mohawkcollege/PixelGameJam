@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1227484372542520090}
   - component: {fileID: 3029860047768022619}
   m_Layer: 5
-  m_Name: Cork Board Canvas
+  m_Name: Board Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1202937238839689773, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_Name
-      value: Cork Board Canvas
+      value: Board Menu
       objectReference: {fileID: 0}
     - target: {fileID: 1202937238839689773, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_IsActive
@@ -1793,6 +1793,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1792539296}
     m_Modifications:
+    - target: {fileID: 268199132825511300, guid: 01507a769deb04b4f93dd249adee2c90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2270824563582768183, guid: 01507a769deb04b4f93dd249adee2c90, type: 3}
       propertyPath: m_Name
       value: Settings Menu
@@ -1801,6 +1805,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1977354193}
+    - target: {fileID: 6897220386245570625, guid: 01507a769deb04b4f93dd249adee2c90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 34.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8033041702851761953, guid: 01507a769deb04b4f93dd249adee2c90, type: 3}
       propertyPath: m_Pivot.x
       value: 0
