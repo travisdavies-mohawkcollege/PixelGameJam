@@ -20,23 +20,21 @@ public class TrapSelection : MonoBehaviour
     public void OptionOne()
     {
         selectedTrapID = TrapManager.gameObject.GetComponent<TrapManager>().trapOption1;
-        dungeonManager.gameObject.GetComponent<DungeonManager>().optionSelected = selectedTrapID;
         TrapSelectionUI.SetActive(false);
+        dungeonManager.gameObject.GetComponent<DungeonManager>().roomToTrap.gameObject.transform.GetChild(selectedTrapID).gameObject.SetActive(true);
     }
 
     public void OptionTwo()
     {
         selectedTrapID = TrapManager.gameObject.GetComponent<TrapManager>().trapOption2;
-        dungeonManager.gameObject.GetComponent<DungeonManager>().optionSelected = selectedTrapID;
         TrapSelectionUI.SetActive(false);
+        dungeonManager.gameObject.GetComponent<DungeonManager>().roomToTrap.gameObject.transform.GetChild(selectedTrapID).gameObject.SetActive(true);
     }
 
     public void OptionThree()
     {
         selectedTrapID = TrapManager.gameObject.GetComponent<TrapManager>().trapOption3;
-       // dungeonManager.gameObject.GetComponent<DungeonManager>().optionSelected = selectedTrapID;
         TrapSelectionUI.SetActive(false);
-        // dungeonManager.gameObject.GetComponent<DungeonManager>().roomToTrap.gameObject.transform.GetChild(optionSelected).gameObject.SetActive(true);
         dungeonManager.gameObject.GetComponent<DungeonManager>().roomToTrap.gameObject.transform.GetChild(selectedTrapID).gameObject.SetActive(true);
     }
 

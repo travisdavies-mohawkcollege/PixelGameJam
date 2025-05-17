@@ -16,7 +16,7 @@ public class DungeonManager : MonoBehaviour
     public GameObject entrance;
     public GameObject roomLock;
     public GameObject TrapManager;
-   // public GameObject IntialTrapRoom;
+    public GameObject initialTrapRoom;
     public GameObject roomToTrap;
 
     //Variables for room generation
@@ -26,9 +26,10 @@ public class DungeonManager : MonoBehaviour
     float roomHeight;
     float roomCentre;
     float roomOffsetX;
-    public Vector3 entrancePos = new Vector3(-9.85f, 0, 0);
+    public Vector3 entrancePos = new Vector3(0.053f, 0, 0);
     int lockToBreak;
     bool isLocked;
+    bool firstTrap = true;
 
     //Variables for camera
     public float cameraClampLeft;
@@ -55,28 +56,34 @@ public class DungeonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        roomCount = 4;
-        roomsOwned = 4;
+        roomCount = 3;
+        roomsOwned = 3;
         roomOffsetX = 0;
         roomWidth = dungeonPrefab.transform.localScale.x;
         roomHeight = dungeonPrefab.transform.localScale.y;
         roomCentre = roomWidth / 2;
         entrance.transform.position = entrancePos;
-        //set hoard, player and entrance to be not locked, new rooms start at 4
+        //set hoard, player and entrance to be not locked, new rooms start at 3
         isLockedList.Add(false);
         isLockedList.Add(false);
         isLockedList.Add(false);
-        isLockedList.Add(false);
+        
         rooms.Add(playerRoomPrefab);
         rooms.Add(hoardPrefab);
         rooms.Add(entrance);
-        rooms.Add(dungeonPrefab);
+        
         //set existing rooms to trapped or not
         hasTrapList.Add(false);
         hasTrapList.Add(false);
         hasTrapList.Add(false);
-        hasTrapList.Add(false);
+        
+        //roomToTrap = initialTrapRoom;
+        CreateRoom();
 
+       /* for (int i=0; i < 8; i++)
+        {
+            roomToTrap.transform.GetChild(i).gameObject.SetActive(false);
+        }*/
     }
 
     // Update is called once per frame
@@ -112,6 +119,10 @@ public class DungeonManager : MonoBehaviour
         GameObject newLock = Instantiate(roomLock, new Vector3(roomOffsetX, -0.5f, -1), Quaternion.identity);
        // newLock.transform.parent = newRoom.transform;
         roomLocks.Add(newLock);
+        for (int i = 0; i < 8; i++)
+        {
+            newRoom.transform.GetChild(i).gameObject.SetActive(false);
+        }
 
     }
 
@@ -146,10 +157,16 @@ public class DungeonManager : MonoBehaviour
                 }
                 if (hit.collider.tag == "isUnlocked")
                 {
-                    roomToTrap = rooms[lockToBreak - 1];
-                    TrapManager.GetComponent<TrapManager>().TrapChooser();
-                    roomToTrap.tag = "hasTrap";
+                   
                     
+                    
+                    roomToTrap = rooms[roomCount - 1];
+                    
+                        
+                    TrapManager.GetComponent<TrapManager>().TrapChooser();
+                    hit.collider.tag = "hasTrap";
+                    // roomToTrap.tag = "hasTrap";
+
 
                 }
                 else
