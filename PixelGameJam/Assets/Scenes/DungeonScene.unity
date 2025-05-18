@@ -271,8 +271,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 589250bd5959196469e74c26c4ef6368, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -671,6 +671,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1792539296}
     m_Modifications:
+    - target: {fileID: 593131544452219950, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 593131544452219950, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 589250bd5959196469e74c26c4ef6368, type: 3}
     - target: {fileID: 768771607973357904, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_Name
       value: Dungeon Button
@@ -770,6 +778,18 @@ PrefabInstance:
     - target: {fileID: 8101441700329726864, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345382112475962144, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345382112475962144, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345382112475962144, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.90588236
       objectReference: {fileID: 0}
     - target: {fileID: 8428546205927086027, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2598,7 +2618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.90588236, g: 0.81960785, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
