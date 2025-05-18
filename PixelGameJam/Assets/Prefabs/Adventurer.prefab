@@ -51,10 +51,10 @@ MonoBehaviour:
   agil: 0
   strg: 0
   greed: 0
-  mage: {fileID: 21300000, guid: 254b3f773d8eaf346a7a61fc1a6ad96f, type: 3}
-  rogue: {fileID: 21300000, guid: e9511abd069a0d34baaefb69acec47d4, type: 3}
-  fighter: {fileID: 21300000, guid: 0a3821269ebee7f49956b9eeddcc1e31, type: 3}
-  archer: {fileID: 21300000, guid: 6906cc83b6212244485511f35da341df, type: 3}
+  mage: {fileID: 21300000, guid: bd1fbc4eed2c8684a868784bc442eb03, type: 3}
+  rogue: {fileID: 21300000, guid: 85aecdb5141b95f428a4988ec9fafa16, type: 3}
+  fighter: {fileID: 21300000, guid: 261ffc00e1fe9ba4982002e46a06c851, type: 3}
+  archer: {fileID: 21300000, guid: dedefe4b81becc84880f7da365d58d0f, type: 3}
 --- !u!212 &80420826644525251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a3821269ebee7f49956b9eeddcc1e31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 261ffc00e1fe9ba4982002e46a06c851, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

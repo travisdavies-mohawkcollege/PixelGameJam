@@ -239,7 +239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 577854597}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenBoard
         m_Mode: 1
@@ -774,7 +774,7 @@ PrefabInstance:
     - target: {fileID: 8428546205927086027, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 577854597}
     - target: {fileID: 8428546205927086027, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenBoard
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 577854597}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
@@ -3292,14 +3292,26 @@ PrefabInstance:
     - target: {fileID: 331770581513043253, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 577854597}
+    - target: {fileID: 331770581513043253, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SettingsPressed
       objectReference: {fileID: 0}
     - target: {fileID: 825450491540338560, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 577854597}
+    - target: {fileID: 825450491540338560, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 1610133611686238598, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 577854597}
+    - target: {fileID: 1610133611686238598, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
       objectReference: {fileID: 0}
     - target: {fileID: 3650725393900051498, guid: e37df3c63e04f9049b783e4e4fbac191, type: 3}
       propertyPath: m_SizeDelta.x
