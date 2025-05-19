@@ -15,6 +15,7 @@ public class adventurer : MonoBehaviour
     public Sprite fighter;
     public Sprite archer;
     private SpriteRenderer adventurer_spriteRenderer;
+
     private void Awake()
     {
         // Fetch the SpriteRenderer from the GameObject

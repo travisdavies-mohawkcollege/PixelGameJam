@@ -10,10 +10,14 @@ public class MenuManager : MonoBehaviour
     public GameObject settingMenu;
     public GameObject pauseMenu;
     public GameObject rooms;
+    public GameObject trapSelection;
     public bool boardOpen;
     public bool settingsOpen;
     public bool pauseOpen;
     public bool roomsOn;
+
+    //for if picking trap
+    public bool pickingTrap;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,7 @@ public class MenuManager : MonoBehaviour
         pauseOpen = false;
         roomsOn = false;
         Time.timeScale = 0f;
+       
     }
     public void OpenBoard()
     {
@@ -44,6 +49,16 @@ public class MenuManager : MonoBehaviour
             dungeonUI.interactable = false; //these 2 lines make it unclickable
             dungeonUI.blocksRaycasts = false;
             boardOpen = true;
+            //for if picking trap
+            if (trapSelection.activeSelf)
+            {
+                pickingTrap = true;
+                trapSelection.SetActive(false);
+            }
+            else
+            {
+                pickingTrap = false;
+            }
             //Time.timeScale = 0f; Pauses time but I think we want time to keep going in town
 
         }
@@ -51,16 +66,27 @@ public class MenuManager : MonoBehaviour
         {
             adventurerBoard.alpha = 0f;   //sets visibity to 100% translucent              
             adventurerBoard.interactable = false; //these 2 lines make it unclickable
-            adventurerBoard.blocksRaycasts = false; 
+            adventurerBoard.blocksRaycasts = false;
             dungeonUI.alpha = 1f;   //sets visibity to 100% opaque              
             dungeonUI.interactable = true;    //these 2 lines make it clickable  
             dungeonUI.blocksRaycasts = true;
             boardOpen = false;
             //Other useful code                 
             //Time.timeScale = 0f               (sets time to 0%)
-            //(GameObject).SetActive(true);     (sets object to inactive)    
+            //(GameObject).SetActive(true);     (sets object to inactive)
+            //for if picking trap
+            if (pickingTrap)
+            {
+                pickingTrap = false;
+                trapSelection.SetActive(true);
+            }
+            else
+            {
+                pickingTrap = false;
+            }
         }
     }
+    
     public void StartGame()
     {
         adventurerBoard.alpha = 0f;   //sets visibity to 100% opaque              

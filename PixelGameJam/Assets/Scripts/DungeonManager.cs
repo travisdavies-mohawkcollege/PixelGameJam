@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ public class DungeonManager : MonoBehaviour
     public GameObject TrapManager;
     public GameObject initialTrapRoom;
     public GameObject roomToTrap;
+    public GameObject[] spawns = new GameObject[4];
+
 
     //Variables for room generation
     public int roomCount;
@@ -33,17 +36,21 @@ public class DungeonManager : MonoBehaviour
 
     //Variables for camera
     public float cameraClampLeft;
-    
+
     //trap variables
     bool hasTrap;
     public int optionSelected;
-    
+
     //Lists
     List<GameObject> rooms = new List<GameObject>();
     List<bool> isLockedList = new List<bool>();
     List<GameObject> roomLocks = new List<GameObject>();
     List<bool> hasTrapList = new List<bool>();
-    
+    bool[] spawnFilled = new bool[4];
+
+    //spawn variables
+    public int spawnToUse = 0;
+
     //Variables for locked rooms
     int unlockCost;
 
@@ -63,27 +70,32 @@ public class DungeonManager : MonoBehaviour
         roomHeight = dungeonPrefab.transform.localScale.y;
         roomCentre = roomWidth / 2;
         entrance.transform.position = entrancePos;
+        spawnFilled[0] = false;
+        spawnFilled[1] = false;
+        spawnFilled[2] = false;
+        spawnFilled[3] = false;
+
         //set hoard, player and entrance to be not locked, new rooms start at 3
         isLockedList.Add(false);
         isLockedList.Add(false);
         isLockedList.Add(false);
-        
+
         rooms.Add(playerRoomPrefab);
         rooms.Add(hoardPrefab);
         rooms.Add(entrance);
-        
+
         //set existing rooms to trapped or not
         hasTrapList.Add(false);
         hasTrapList.Add(false);
         hasTrapList.Add(false);
-        
+
         //roomToTrap = initialTrapRoom;
         CreateRoom();
 
-       /* for (int i=0; i < 8; i++)
-        {
-            roomToTrap.transform.GetChild(i).gameObject.SetActive(false);
-        }*/
+        /* for (int i=0; i < 8; i++)
+         {
+             roomToTrap.transform.GetChild(i).gameObject.SetActive(false);
+         }*/
     }
 
     // Update is called once per frame
@@ -103,21 +115,21 @@ public class DungeonManager : MonoBehaviour
     {
         //Create a new room
         roomCount += 1;
-        entrancePos.x -=3.28f;
+        entrancePos.x -= 3.28f;
         entrance.transform.position = entrancePos;
         roomOffsetX = nextRoomMarker.transform.position.x;
         GameObject newRoom = Instantiate(dungeonPrefab, new Vector3(roomOffsetX, 0, 0), Quaternion.identity);
         rooms.Add(newRoom);
         isLockedList.Add(true);
-        if(newRoom.tag == "isLocked")
+        if (newRoom.tag == "isLocked")
         {
             isLocked = true;
             unlockCost = 1;
-            
+
         }
         //create lock on new room, locks start at 0
         GameObject newLock = Instantiate(roomLock, new Vector3(roomOffsetX, -0.5f, -1), Quaternion.identity);
-       // newLock.transform.parent = newRoom.transform;
+        // newLock.transform.parent = newRoom.transform;
         roomLocks.Add(newLock);
         for (int i = 0; i < 8; i++)
         {
@@ -157,12 +169,12 @@ public class DungeonManager : MonoBehaviour
                 }
                 if (hit.collider.tag == "isUnlocked")
                 {
-                   
-                    
-                    
+
+
+
                     roomToTrap = rooms[roomCount - 1];
-                    
-                        
+
+
                     TrapManager.GetComponent<TrapManager>().TrapChooser();
                     hit.collider.tag = "hasTrap";
                     // roomToTrap.tag = "hasTrap";
@@ -177,4 +189,41 @@ public class DungeonManager : MonoBehaviour
 
         }
     }
+
+    public void SpawnHandler()
+    {
+        if (!spawnFilled[0])
+        {
+            spawnFilled[0] = true;
+            spawnToUse = 0;
+        }
+        else if (!spawnFilled[1])
+        {
+            spawnFilled[1] = true;
+            spawnToUse = 1;
+        }
+        else if (!spawnFilled[2])
+        {
+            spawnFilled[2] = true;
+            spawnToUse = 2;
+        }
+        else if (!spawnFilled[3])
+        {
+            spawnFilled[3] = true;
+            spawnToUse = 3;
+        }
+        else
+        {
+            Debug.Log("No more spawns available");
+        }
     }
+    public void ResetSpawns()
+    {
+        for (int i = 0; i < spawnFilled.Length; i++)
+        {
+            spawnFilled[i] = false;
+        }
+    }
+}
+
+
