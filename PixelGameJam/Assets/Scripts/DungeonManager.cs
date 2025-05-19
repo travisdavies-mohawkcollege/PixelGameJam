@@ -6,10 +6,11 @@ using UnityEngine;
 public class DungeonManager : MonoBehaviour
 {
     //Declare Variables
-
+    int tempR;
 
     // Prefabs and Refrences
     public GameObject dungeonPrefab;
+    public GameObject GameManager;
     public Camera dungeonCam;
     public GameObject hoardPrefab;
     public GameObject playerRoomPrefab;
@@ -41,12 +42,22 @@ public class DungeonManager : MonoBehaviour
     bool hasTrap;
     public int optionSelected;
 
+    //adventurer variables
+    int adventurerStr;
+    int adventurerAgl;
+    int adventurerInt;
+    int adventurerGreed;
+    int adventurerHp;
+
     //Lists
     List<GameObject> rooms = new List<GameObject>();
     List<bool> isLockedList = new List<bool>();
     List<GameObject> roomLocks = new List<GameObject>();
     List<bool> hasTrapList = new List<bool>();
     bool[] spawnFilled = new bool[4];
+    public List<int> trapInt = new List<int>();
+    public List<int> trapStr = new List<int>();
+    public List<int> trapAgl = new List<int>();
 
     //spawn variables
     public int spawnToUse = 0;
@@ -57,7 +68,13 @@ public class DungeonManager : MonoBehaviour
     //mask layer for deciding whats interactable
     public LayerMask raycastLayerMask;
 
-
+    bool aglPriority = false;
+    bool strPriority = false;
+    bool intPriority = false;
+    bool facingTrap = false;
+    //roll with, 1 is agl, 2 is str, 3 is int
+    int rollWith;
+    int difficultyCheck = 0;
 
 
     // Start is called before the first frame update
@@ -89,6 +106,16 @@ public class DungeonManager : MonoBehaviour
         hasTrapList.Add(false);
         hasTrapList.Add(false);
 
+        trapInt.Add(0);
+        trapInt.Add(0);
+        trapInt.Add(0);
+        trapStr.Add(0);
+        trapStr.Add(0);
+        trapStr.Add(0);
+        trapAgl.Add(0);
+        trapAgl.Add(0);
+        trapAgl.Add(0);
+
         //roomToTrap = initialTrapRoom;
         CreateRoom();
 
@@ -101,12 +128,21 @@ public class DungeonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (roomCount <= roomsOwned)
+        if (GameManager.gameObject.GetComponent<GameManager>().gameState == 1)
         {
-            CreateRoom();
+            
+
+            if (roomCount <= roomsOwned)
+            {
+                CreateRoom();
+            }
+            MouseHandler();
+        }
+        if (GameManager.gameObject.GetComponent<GameManager>().gameState == 3)
+        {
+            Raid();
         }
 
-        MouseHandler();
 
 
     }
@@ -177,6 +213,9 @@ public class DungeonManager : MonoBehaviour
 
                     TrapManager.GetComponent<TrapManager>().TrapChooser();
                     hit.collider.tag = "hasTrap";
+                    hit.collider.enabled = false;
+                    
+                    Debug.Log("Trap Stats: " + trapAgl[roomCount - 1] + " " + trapStr[roomCount - 1] + " " + trapInt[roomCount - 1]);
                     // roomToTrap.tag = "hasTrap";
 
 
@@ -224,6 +263,227 @@ public class DungeonManager : MonoBehaviour
             spawnFilled[i] = false;
         }
     }
+
+    public void Raid()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject activeAdventurer = GameObject.FindGameObjectWithTag("Adventurer");
+            if (activeAdventurer == null)
+            {
+                //end raid phase
+                GameManager.GetComponent<GameManager>().gameState = 1;
+            }
+            else
+            {
+                //set stats
+                int tempRoomCount = roomCount;
+                adventurerAgl = activeAdventurer.GetComponent<adventurer>().agil;
+                adventurerStr = activeAdventurer.GetComponent<adventurer>().strg;
+                adventurerInt = activeAdventurer.GetComponent<adventurer>().intl;
+                adventurerHp = activeAdventurer.GetComponent<adventurer>().hp;
+                adventurerGreed = activeAdventurer.GetComponent<adventurer>().greed;
+                
+
+                //rooms before player
+                for (int r = roomCount - 1; r > 2; r--)
+                {
+                    Debug.Log("Room: " + r + " Room Count:" + roomCount);
+                    Debug.Log("trapAgl: " + trapAgl[r - 1] + " trapStr" + trapStr[r-1] + " trapInt" + trapInt[r-1]);
+                    tempR = r;
+                    if (adventurerHp <= 0)
+                    {
+                        Debug.Log("Adventurer is dead");
+                        Destroy(activeAdventurer);
+                        GameManager.GetComponent<GameManager>().souls++;
+                        break;
+                    }
+                    activeAdventurer.transform.position = Vector2.MoveTowards(activeAdventurer.transform.position, rooms[r].transform.GetChild(8).transform.position, 5f);
+                    facingTrap = true;
+                    //check if room has trap
+                    if (rooms[r- 1].tag == "hasTrap")
+                    {
+                        Debug.Log("Facing Trap");
+                        Debug.Log("Adv Stats : " + adventurerAgl + " " + adventurerStr + " " + adventurerInt);
+                        //compare stats
+                        if (adventurerAgl > trapAgl[r -1])
+                        {
+                            aglPriority = true;
+                        }
+                        if (adventurerStr > trapStr[r - 1])
+                        {
+                            strPriority = true;
+                        }
+                        if (adventurerInt > trapInt[r - 1])
+                        {
+                            intPriority = true;
+                        }
+                        // see which is best to roll with
+                        if (aglPriority && strPriority && intPriority)
+                        {
+                            if (adventurerAgl > adventurerStr && adventurerAgl > adventurerInt)
+                            {
+                                rollWith = 1;
+                            }
+                            else if (adventurerStr > adventurerAgl && adventurerStr > adventurerInt)
+                            {
+                                rollWith = 2;
+                            }
+                            else
+                            {
+                                rollWith = 3;
+                            }
+                        }
+                        else if (aglPriority && strPriority)
+                        {
+                            if (adventurerAgl > adventurerStr)
+                            {
+                                rollWith = 1;
+                            }
+                            else
+                            {
+                                rollWith = 2;
+                            }
+                        }
+                        else if (aglPriority && intPriority)
+                        {
+                            if (adventurerAgl > adventurerInt)
+                            {
+                                rollWith = 1;
+                            }
+                            else
+                            {
+                                rollWith = 3;
+                            }
+                        }
+                        else if (strPriority && intPriority)
+                        {
+                            if (adventurerStr > adventurerInt)
+                            {
+                                rollWith = 2;
+                            }
+                            else
+                            {
+                                rollWith = 3;
+                            }
+                        }
+                        else if (aglPriority)
+                        {
+                            rollWith = 1;
+                        }
+                        else if (strPriority)
+                        {
+                            rollWith = 2;
+                        }
+                        else if (intPriority)
+                        {
+                            rollWith = 3;
+                        }
+                        else
+                        {
+                            Debug.Log("No priority");
+                            rollWith = Random.Range(1, 4);
+                        }
+                        //check goal to beat
+                        if (rollWith == 1)
+                        {
+                            if (adventurerAgl > trapAgl[r - 1])
+                            {
+                                difficultyCheck = 5;
+                            }
+                            if (adventurerAgl == trapAgl[r - 1])
+                            {
+                                difficultyCheck = 10;
+                            }
+                            if (adventurerAgl < trapAgl[r - 1])
+                            {
+                                difficultyCheck = 15;
+                            }
+                        }
+                        if (rollWith == 2)
+                        {
+                            if (adventurerStr > trapStr[r - 1])
+                            {
+                                difficultyCheck = 5;
+                            }
+                            if (adventurerStr == trapStr[r - 1])
+                            {
+                                difficultyCheck = 10;
+                            }
+                            if (adventurerStr < trapStr[r - 1])
+                            {
+                                difficultyCheck = 15;
+                            }
+                        }
+                        if (rollWith == 3)
+                        {
+                            if (adventurerInt > trapInt[r - 1])
+                            {
+                                difficultyCheck = 5;
+                            }
+                            if (adventurerInt == trapInt[r - 1])
+                            {
+                                difficultyCheck = 10;
+                            }
+                            if (adventurerInt < trapInt[r - 1])
+                            {
+                                difficultyCheck = 15;
+                            }
+                        }
+                        //roll dice
+                        while (facingTrap)
+                        {
+                            int roll = Random.Range(1, 21);
+                            Debug.Log("Roll: " + roll);
+                            if (roll >= difficultyCheck)
+                            {
+                                facingTrap = false;
+                                Debug.Log("Success");
+                            }
+                            else
+                            {
+                                Debug.Log("Failure");
+                                adventurerHp -= 1;
+                                if (adventurerHp <= 0)
+                                {
+                                    //kill adventurer
+                                    Destroy(activeAdventurer);
+                                    GameManager.GetComponent<GameManager>().souls++;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        
+                    }
+
+                }
+                //check if adventurer is dead
+                if (adventurerHp <= 0)
+                {
+                    Debug.Log("Adventurer is dead");
+                    Destroy(activeAdventurer);
+                    GameManager.GetComponent<GameManager>().souls++;
+                    GameManager.GetComponent<GameManager>().gold += adventurerGreed / 2;
+                    break;
+                }
+                else
+                {
+                    //move to next room
+                    activeAdventurer.transform.position = Vector2.MoveTowards(activeAdventurer.transform.position, rooms[tempR].transform.GetChild(8).transform.position, 5f);
+                    Debug.Log("Moving to next room");
+                    GameManager.GetComponent<GameManager>().souls--;
+                    GameManager.GetComponent<GameManager>().gold -= adventurerGreed;
+                }
+
+            }
+        }
+        //End of Raid Phase
+        GameManager.GetComponent<GameManager>().gameState = 1;
+    }
 }
+
 
 

@@ -60,15 +60,15 @@ public class TrapManager : MonoBehaviour
     public int trapOption1;
     public int trapOption2;
     public int trapOption3;
-    int trapOption1Str;
-    int trapOption1Agl;
-    int trapOption1Int;
-    int trapOption2Str;
-    int trapOption2Agl;
-    int trapOption2Int;
-    int trapOption3Str;
-    int trapOption3Agl;
-    int trapOption3Int;
+    public int trapOption1Str;
+    public int trapOption1Agl;
+    public int trapOption1Int;
+    public int trapOption2Str;
+    public int trapOption2Agl;
+    public int trapOption2Int;
+    public int trapOption3Str;
+    public int trapOption3Agl;
+    public int trapOption3Int;
 
 
 

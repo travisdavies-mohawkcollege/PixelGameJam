@@ -29,7 +29,7 @@ public class noteScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Name = names[Random.Range(1,15)];
+        Name = names[Random.Range(1, 15)];
         Class = classes[Random.Range(1, 4)];
         intl = Random.Range(1, 6);
         agil = Random.Range(1, 6);
@@ -56,7 +56,7 @@ public class noteScript : MonoBehaviour
             agil += 3;
             strg += 2;
         }
-        greed = (intl + strg + agil)*(Random.Range(2, 4));
+        greed = (intl + strg + agil) * (Random.Range(2, 4));
         noteLine1.text = (Name);
         noteLine2.text = (Class);
         noteLine3.text = "Agl " + (agil);
@@ -68,13 +68,21 @@ public class noteScript : MonoBehaviour
     //Function to create adventurer, pass variables, and destroy note
     public void WasClicked()
     {
+
         noteScript noteData = this;
         dungeonManager.GetComponent<DungeonManager>().SpawnHandler();
         int spawnToUse = dungeonManager.GetComponent<DungeonManager>().spawnToUse;
-        spawnPoint = dungeonManager.GetComponent<DungeonManager>().spawns[spawnToUse];
-        GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        adventurer adventurer = adventurerGO.GetComponent<adventurer>();
-        adventurer.findStats(noteData);
-        Destroy(gameObject);
+        if (spawnToUse < 4)
+        {
+            spawnPoint = dungeonManager.GetComponent<DungeonManager>().spawns[spawnToUse];
+            GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
+            adventurer adventurer = adventurerGO.GetComponent<adventurer>();
+            adventurer.findStats(noteData);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("No spawn points available");
+        }
     }
 }
