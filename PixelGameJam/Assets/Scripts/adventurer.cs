@@ -60,7 +60,7 @@ public class adventurer : MonoBehaviour
     {
         isDead = true;
         // before timer
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         //after timer
         Destroy(gameObject);
     }
