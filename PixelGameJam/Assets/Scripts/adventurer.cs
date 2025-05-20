@@ -15,12 +15,13 @@ public class adventurer : MonoBehaviour
     public Sprite rogue;
     public Sprite fighter;
     public Sprite archer;
-    private SpriteRenderer adventurer_spriteRenderer;
+    private SpriteRenderer adventurerSpriteRenderer;
+
 
     private void Awake()
     {
-        // Fetch the SpriteRenderer from the GameObject
-        adventurer_spriteRenderer = GetComponent<SpriteRenderer>();
+        adventurerSpriteRenderer = GetComponent<SpriteRenderer>();
+
     }
     public void findStats(noteScript data)
     {
@@ -34,21 +35,23 @@ public class adventurer : MonoBehaviour
     }
     private void Start()
     {
+
         if (Class == "Mage")
-        {
-            adventurer_spriteRenderer.sprite = mage;
-        }
-        else if (Class == "Rogue")
-        {
-            adventurer_spriteRenderer.sprite = rogue;
-        }
-        else if (Class == "Fighter")
-        {
-            adventurer_spriteRenderer.sprite = fighter;
-        }
-        else if (Class == "Archer")
-        {
-            adventurer_spriteRenderer.sprite = archer;
-        }
+         {
+             adventurerSpriteRenderer.sprite = mage;
+
+         }
+         else if (Class == "Rogue")
+         {
+             adventurerSpriteRenderer.sprite = rogue;
+         }
+         else if (Class == "Fighter")
+         {
+             adventurerSpriteRenderer.sprite = fighter;
+         }
+         else if (Class == "Archer")
+         {
+             adventurerSpriteRenderer.sprite = archer;
+         }
     }
 }

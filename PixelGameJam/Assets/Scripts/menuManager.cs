@@ -196,11 +196,11 @@ public class MenuManager : MonoBehaviour
 
     public void OnVolumeUp()
     {
-        AudioListener.volume += 10;
+        AudioListener.volume += 0.2f;
     }
 
     public void OnVolumeDown()
     {
-        AudioListener.volume -= 10;
+        AudioListener.volume -= 0.2f;
     }
 }

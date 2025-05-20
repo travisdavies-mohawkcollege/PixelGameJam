@@ -243,14 +243,14 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 35}
   - name: Fighter_Frame_6
     originalName: 
-    pivot: {x: 1.375, y: 0}
+    pivot: {x: 0.52380955, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 4
-      width: 8
+      x: 34
+      y: 66
+      width: 21
       height: 23
     spriteID: 165160d3fa6eb6544ab723a9d82560b4
     spriteBone: []
@@ -260,7 +260,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 4}
+    uvTransform: {x: 34, y: 66}
   - name: Fighter_Frame_7
     originalName: 
     pivot: {x: 0.52380955, y: 0}
@@ -269,7 +269,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 34
-      y: 66
+      y: 97
       width: 21
       height: 23
     spriteID: eee8ff6c65624d148976f3689a4c2e57
@@ -280,28 +280,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 34, y: 66}
+    uvTransform: {x: 34, y: 97}
   - name: Fighter_Frame_8
-    originalName: 
-    pivot: {x: 0.55, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 63
-      y: 35
-      width: 20
-      height: 23
-    spriteID: e7ff0fb69416beb45924fd9dc69e162e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 63, y: 35}
-  - name: Fighter_Frame_9
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -312,7 +292,7 @@ ScriptedImporter:
       y: 66
       width: 20
       height: 23
-    spriteID: a6ef599dd571f274ab38aa5eb324393a
+    spriteID: e7ff0fb69416beb45924fd9dc69e162e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 63, y: 66}
-  - name: Fighter_Frame_10
+  - name: Fighter_Frame_9
     originalName: 
     pivot: {x: 0.55, y: 0}
     alignment: 9
@@ -332,7 +312,7 @@ ScriptedImporter:
       y: 97
       width: 20
       height: 23
-    spriteID: 93a2d9ed6aac93a4ea91701bbb022b7e
+    spriteID: a6ef599dd571f274ab38aa5eb324393a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,18 +321,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 63, y: 97}
-  - name: Fighter_Frame_11
+  - name: Fighter_Frame_10
     originalName: 
-    pivot: {x: 0.52380955, y: 0}
+    pivot: {x: 0.55, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 34
-      y: 97
-      width: 21
+      x: 92
+      y: 4
+      width: 20
       height: 23
-    spriteID: 2b06494ae20c39145a7719ad1f30a16a
+    spriteID: 93a2d9ed6aac93a4ea91701bbb022b7e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -360,8 +340,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 34, y: 97}
-  - name: Fighter_Frame_12
+    uvTransform: {x: 92, y: 4}
+  - name: Fighter_Frame_11
     originalName: 
     pivot: {x: 0.52380955, y: 0}
     alignment: 9
@@ -372,7 +352,7 @@ ScriptedImporter:
       y: 4
       width: 21
       height: 23
-    spriteID: 2e7b4ed3089ea284cb15aa510812f937
+    spriteID: 2b06494ae20c39145a7719ad1f30a16a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,6 +361,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 63, y: 4}
+  - name: Fighter_Frame_12
+    originalName: 
+    pivot: {x: 0.52380955, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 35
+      width: 21
+      height: 23
+    spriteID: 2e7b4ed3089ea284cb15aa510812f937
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 63, y: 35}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -450,7 +450,7 @@ ScriptedImporter:
       cellRect:
         x: 1
         y: 0
-        width: 8
+        width: 21
         height: 23
       spriteId: 165160d3fa6eb6544ab723a9d82560b4
     - name: Fighter_Frame_7

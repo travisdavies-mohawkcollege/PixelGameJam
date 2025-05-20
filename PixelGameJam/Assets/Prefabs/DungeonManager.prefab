@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &772856813973271039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6821208237134817085}
+  - component: {fileID: 2194425001329471953}
+  m_Layer: 0
+  m_Name: DungeonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6821208237134817085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772856813973271039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2194425001329471953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772856813973271039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b942217186fb1d4a8c6cfb21bc276f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonPrefab: {fileID: 2384678623691261021, guid: 3e0db656b77e2ed4da26a7dc1207fcdf, type: 3}
+  dungeonCam: {fileID: 0}
+  hoardPrefab: {fileID: 2384678623691261021, guid: 3e0db656b77e2ed4da26a7dc1207fcdf, type: 3}
+  playerRoomPrefab: {fileID: 2384678623691261021, guid: 3e0db656b77e2ed4da26a7dc1207fcdf, type: 3}
+  nextRoomMarker: {fileID: 0}
+  entrance: {fileID: 0}
+  roomLock: {fileID: -2253911629886400664, guid: 7a62b77778af52a4ebdf0e4862022059, type: 3}
+  TrapManager: {fileID: 0}
+  initialTrapRoom: {fileID: 2384678623691261021, guid: 3e0db656b77e2ed4da26a7dc1207fcdf, type: 3}
+  roomToTrap: {fileID: 0}
+  spawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  roomCount: 3
+  roomsOwned: 3
+  roomWidth: 0
+  entrancePos: {x: -6.507, y: 0, z: 0}
+  cameraClampLeft: 0
+  optionSelected: 0
+  spawnToUse: 0
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 128

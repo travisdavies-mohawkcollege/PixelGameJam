@@ -9,12 +9,13 @@ public class spawnManager : MonoBehaviour
     public GameObject page;
     public GameObject parent;
     public Transform[] spawnPoints;
-    public GameObject[] pages;
+    public int pages;
     private int i = 0;
     //Runs once telling the spawn function to run every 5 seconds
     void Start()
     {
         InvokeRepeating("Spawn", 0f, 30f);
+        pages = 0;
     }
 
     //Runs every 30 secconds instantiating a page prefab
@@ -22,11 +23,21 @@ public class spawnManager : MonoBehaviour
     {
         if (spawnPoints.Length == 0 || page == null) return;
 
-        (Instantiate(page, spawnPoints[i].position, spawnPoints[i].rotation) as GameObject).transform.parent = parent.transform;
+        if (pages <6)
+        {
+            (Instantiate(page, spawnPoints[i].position, spawnPoints[i].rotation) as GameObject).transform.parent = parent.transform;
 
-        i = (i + 1) % spawnPoints.Length;
+            i = (i + 1) % spawnPoints.Length;
+            pages++;
+        }
+       
     }
 
-    
-        
+    public void DecreasePage()
+    {
+        pages--;
+    }
+
+
+
 }
