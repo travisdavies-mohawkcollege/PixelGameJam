@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24935973969ca64458b20bcb836adb52
+guid: cf97ff72dd7fc0140ae3103f9bc8e1e8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,133 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fighter-Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da800e182f6c66a409c6532bb9c6c686
-      internalID: -391664712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 96
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71812aed8b54a5d41a0dd688d93533d2
-      internalID: 1417605443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 96
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a96346e716d6e864a83519e20b0b02f1
-      internalID: 1438357833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 72
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7f886766c9fb9e4a8291556e0f48343
-      internalID: 927458220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 72
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f43f4764f8d98f5488405b5c12c9df90
-      internalID: 248585509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 72
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77bbab43698917246ba076498a007ea2
-      internalID: 483801899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fighter-Sheet_6
+      name: Rogue-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7922f6d0577e4ca418a0a1ceff5e9fb1
-      internalID: 1432280548
+      spriteID: b29149fc18bd3c249af49190a7439e72
+      internalID: 301703945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_7
+      name: Rogue-Sheet_1
       rect:
         serializedVersion: 2
         x: 24
@@ -258,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76c223e0647f77c478ab000d1523118d
-      internalID: -738751465
+      spriteID: d2423f0bbd0a4d6419bb1b85499321ab
+      internalID: -2122873813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_8
+      name: Rogue-Sheet_2
       rect:
         serializedVersion: 2
         x: 48
@@ -279,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06808953f7a25604ea9f0b65a0517c38
-      internalID: 582759059
+      spriteID: 99d2a99db26b1cb4082b378fce00e1ee
+      internalID: 1388141298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_9
+      name: Rogue-Sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -300,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f693b89a328cd143b53724f796f120e
-      internalID: -672602650
+      spriteID: ada7aefcfc277e44cb643d59d80338ae
+      internalID: 1294418252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_10
+      name: Rogue-Sheet_4
       rect:
         serializedVersion: 2
         x: 24
@@ -321,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90253afbde196ae44ab6923413765685
-      internalID: 642576093
+      spriteID: a991da7dfceb70b43b7a7da539a8732e
+      internalID: -1792526767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_11
+      name: Rogue-Sheet_5
       rect:
         serializedVersion: 2
         x: 48
@@ -342,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64dd3478e2f3e674e9b4a4dace6d909e
-      internalID: -2125437622
+      spriteID: 53d06db6bdd0be542a5d49d4f27305b2
+      internalID: 2116701039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fighter-Sheet_12
+      name: Rogue-Sheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -363,8 +237,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe7f9aeeedfd4d449aac3466b42d206
-      internalID: -1242514
+      spriteID: ac71adc28c25faf448ac4c8180544e92
+      internalID: 1867075782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rogue-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce0d183164e13041a76665bf75278df
+      internalID: -169613750
       vertices: []
       indices: 
       edges: []
@@ -380,19 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Fighter-Sheet_0: -391664712
-      Fighter-Sheet_1: 1417605443
-      Fighter-Sheet_10: 642576093
-      Fighter-Sheet_11: -2125437622
-      Fighter-Sheet_12: -1242514
-      Fighter-Sheet_2: 1438357833
-      Fighter-Sheet_3: 927458220
-      Fighter-Sheet_4: 248585509
-      Fighter-Sheet_5: 483801899
-      Fighter-Sheet_6: 1432280548
-      Fighter-Sheet_7: -738751465
-      Fighter-Sheet_8: 582759059
-      Fighter-Sheet_9: -672602650
+      Rogue-Sheet_0: 301703945
+      Rogue-Sheet_1: -2122873813
+      Rogue-Sheet_2: 1388141298
+      Rogue-Sheet_3: 1294418252
+      Rogue-Sheet_4: -1792526767
+      Rogue-Sheet_5: 2116701039
+      Rogue-Sheet_6: 1867075782
+      Rogue-Sheet_7: -169613750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

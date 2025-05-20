@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5370819339445103380}
   - component: {fileID: 4564761848248306448}
   - component: {fileID: 80420826644525251}
+  - component: {fileID: 2571209615885428796}
   m_Layer: 0
   m_Name: Adventurer
   m_TagString: Player
@@ -55,6 +56,10 @@ MonoBehaviour:
   rogue: {fileID: 21300000, guid: 85aecdb5141b95f428a4988ec9fafa16, type: 3}
   fighter: {fileID: 21300000, guid: 261ffc00e1fe9ba4982002e46a06c851, type: 3}
   archer: {fileID: 21300000, guid: dedefe4b81becc84880f7da365d58d0f, type: 3}
+  mageClip: {fileID: 7400000, guid: 33efb883c22d9f84b815f0e65df87975, type: 2}
+  rogueClip: {fileID: 7400000, guid: 47ef5054898a2334d996a4dfabfef176, type: 2}
+  fighterClip: {fileID: 7400000, guid: ff06ce694c589cc4dadf949dcc60bf6e, type: 2}
+  archerClip: {fileID: 7400000, guid: b576eb5854d768249ae2547164edfec5, type: 2}
 --- !u!212 &80420826644525251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,3 +112,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2571209615885428796
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998576824181202526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a520e8e6ca80aa64c988dfce7e228af2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

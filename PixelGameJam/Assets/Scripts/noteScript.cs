@@ -24,6 +24,7 @@ public class noteScript : MonoBehaviour
     public Text noteLine6;
     public GameObject Adventurer;
     public GameObject spawnPoint;
+    public GameObject spawnMan;
     public GameObject dungeonManager;
 
     // Start is called before the first frame update
@@ -46,7 +47,7 @@ public class noteScript : MonoBehaviour
             intl += 1;
             agil += 3;
         }
-        if (Class == "Warrior")
+        if (Class == "Fighter")
         {
             agil += 1;
             strg += 4;
@@ -64,6 +65,8 @@ public class noteScript : MonoBehaviour
         noteLine5.text = "Int " + (intl);
         noteLine6.text = "$$ " + (greed);
         dungeonManager = GameObject.Find("DungeonManager");
+        spawnMan = GameObject.Find("SpawnManager");
+
     }
     //Function to create adventurer, pass variables, and destroy note
     public void WasClicked()
@@ -75,6 +78,9 @@ public class noteScript : MonoBehaviour
         GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
         adventurer adventurer = adventurerGO.GetComponent<adventurer>();
         adventurer.findStats(noteData);
+
+        spawnMan.GetComponent<spawnManager>().DecreasePage();
         Destroy(gameObject);
+        
     }
 }

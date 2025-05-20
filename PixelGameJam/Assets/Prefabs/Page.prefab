@@ -323,6 +323,8 @@ MonoBehaviour:
   noteLine6: {fileID: 6550375018334302856}
   Adventurer: {fileID: 2998576824181202526, guid: 0031f6acde1a06d4196c126fb39de19d, type: 3}
   spawnPoint: {fileID: 3228658171864930456, guid: b8905e6765a2c3e4299f559999a216e8, type: 3}
+  spawnMan: {fileID: 7584033096045700388, guid: d07cabca46ebefa4a8e68e382660d9fc, type: 3}
+  dungeonManager: {fileID: 772856813973271039, guid: 9ac1844449678db4bbb8f5c40916200b, type: 3}
 --- !u!1 &6913318501226344828
 GameObject:
   m_ObjectHideFlags: 0
