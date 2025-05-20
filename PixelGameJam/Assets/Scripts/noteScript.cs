@@ -76,18 +76,14 @@ public class noteScript : MonoBehaviour
         dungeonManager.GetComponent<DungeonManager>().SpawnHandler();
         int spawnToUse = dungeonManager.GetComponent<DungeonManager>().spawnToUse;
 
-        if (spawnToUse < 2)
-        {
+        
             spawnPoint = dungeonManager.GetComponent<DungeonManager>().spawns[spawnToUse];
             GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
             adventurer adventurer = adventurerGO.GetComponent<adventurer>();
             adventurer.findStats(noteData);
             Destroy(gameObject);
-        }
-        else
-        {
-            Debug.Log("No spawn points available");
-        }
+        
+        
 
    
     }

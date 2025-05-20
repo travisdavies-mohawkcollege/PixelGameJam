@@ -30,6 +30,12 @@ public class DungeonManager : MonoBehaviour
     public GameObject[] spawns = new GameObject[4];
     GameObject activeAdventurer;
 
+    //audio
+    public AudioClip adventurerDeath;
+    public AudioClip adventurerSuccess;
+    public AudioClip money;
+    public AudioSource source;
+
 
     //Variables for room generation
     public int roomCount;
@@ -211,6 +217,7 @@ public class DungeonManager : MonoBehaviour
                         lockToBreak += 1;
                         roomsOwned += 1;
                         trapsOwned += 1;
+                        source.PlayOneShot(money);
 
                     }
                     else
@@ -339,15 +346,16 @@ public class DungeonManager : MonoBehaviour
         {
             Debug.Log("Raid complete, player loses");
             GameManager.GetComponent<GameManager>().gameState = 1;
+            
            // GameManager.GetComponent<GameManager>().souls--;
             GameManager.GetComponent<GameManager>().gold -= adventurerGreed;
             
             Destroy(activeAdventurer);
         }
-        Debug.Log("Active Adventurer: " + activeAdventurer);
+       // Debug.Log("Active Adventurer: " + activeAdventurer);
         //Debug.Log("Moving to next room: " + rooms[raidIndex - 1].transform.GetChild(8).transform.position);
         Vector3 nextPos = new Vector3(rooms[raidIndex - 1].transform.GetChild(8).transform.position.x, activeAdventurer.transform.position.y, 0);
-        activeAdventurer.transform.position = Vector3.MoveTowards(activeAdventurer.transform.position, nextPos, 0.5f * Time.deltaTime);
+        activeAdventurer.transform.position = Vector3.MoveTowards(activeAdventurer.transform.position, nextPos, 0.01f * Time.deltaTime);
         Debug.Log("Moving to next room");
         if (activeAdventurer.transform.position.x == nextPos.x || activeAdventurer.transform.position.x > -1.38)
         {
@@ -357,7 +365,7 @@ public class DungeonManager : MonoBehaviour
 
         if (rooms[raidIndex - 1].tag == "hasTrap")
         {
-            Debug.Log("trap detected in room " + rooms[raidIndex - 1]);
+           // Debug.Log("trap detected in room " + rooms[raidIndex - 1]);
             facingTrap = true;
         }
         else
@@ -371,6 +379,7 @@ public class DungeonManager : MonoBehaviour
                // GameManager.GetComponent<GameManager>().souls--;
                 GameManager.GetComponent<GameManager>().gold -= adventurerGreed;
                 Destroy(activeAdventurer);
+                source.PlayOneShot(adventurerSuccess);
             }
             else
             {
@@ -386,17 +395,17 @@ public class DungeonManager : MonoBehaviour
         Debug.Log("Facing Trap");
         Debug.Log("Adv Stats : " + adventurerAgl + " " + adventurerStr + " " + adventurerInt);
         Debug.Log("raid index "  +raidIndex);
-        Debug.Log("Trap Stats: " + trapAgl[raidIndex - 1] + " " + trapStr[raidIndex - 1] + " " + trapInt[raidIndex - 1]);
+        Debug.Log("Trap Stats: " + trapAgl[raidIndex] + " " + trapStr[raidIndex] + " " + trapInt[raidIndex]);
         //compare stats
-        if (adventurerAgl > trapAgl[raidIndex - 1])
+        if (adventurerAgl > trapAgl[raidIndex])
         {
             aglPriority = true;
         }
-        if (adventurerStr > trapStr[raidIndex - 1])
+        if (adventurerStr > trapStr[raidIndex])
         {
             strPriority = true;
         }
-        if (adventurerInt > trapInt[raidIndex - 1])
+        if (adventurerInt > trapInt[raidIndex])
         {
             intPriority = true;
         }
@@ -471,7 +480,7 @@ public class DungeonManager : MonoBehaviour
         //check goal to beat
         if (rollWith == 1)
         {
-            if (adventurerAgl > trapAgl[raidIndex - 1])
+            if (adventurerAgl > trapAgl[raidIndex])
             {
                 difficultyCheck = 5;
             }
@@ -525,6 +534,7 @@ public class DungeonManager : MonoBehaviour
             {
                 facingTrap = false;
                 Debug.Log("Success");
+               
                 facingTrap = false;
                 moving = true;
                 raidIndex -= 1;
@@ -539,6 +549,7 @@ public class DungeonManager : MonoBehaviour
                 Debug.Log("Trap calculations done");
                 //kill adventurer
                 GameObject activeAdventurer = GameObject.FindGameObjectWithTag("Adventurer");
+                source.PlayOneShot(adventurerDeath);
                 DestroyImmediate(activeAdventurer);
                 Debug.Log("Adventurer is dead");
                 GameManager.GetComponent<GameManager>().souls++;
