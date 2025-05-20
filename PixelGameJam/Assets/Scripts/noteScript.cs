@@ -80,7 +80,8 @@ public class noteScript : MonoBehaviour
             spawnPoint = dungeonManager.GetComponent<DungeonManager>().spawns[spawnToUse];
             GameObject adventurerGO = Instantiate(Adventurer, spawnPoint.transform.position, spawnPoint.transform.rotation);
             adventurer adventurer = adventurerGO.GetComponent<adventurer>();
-            adventurer.findStats(noteData);
+        spawnMan.GetComponent<spawnManager>().DecreasePage();
+        adventurer.findStats(noteData);
             Destroy(gameObject);
         
         

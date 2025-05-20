@@ -16,6 +16,7 @@ public class adventurer : MonoBehaviour
     public Sprite fighter;
     public Sprite archer;
     private SpriteRenderer adventurerSpriteRenderer;
+    public bool isDead = false;
 
 
     private void Awake()
@@ -35,6 +36,7 @@ public class adventurer : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(Die());
 
         if (Class == "Mage")
          {
@@ -54,9 +56,12 @@ public class adventurer : MonoBehaviour
              adventurerSpriteRenderer.sprite = archer;
          }
     }
-
-    public void Die()
+    IEnumerator Die()
     {
+        isDead = true;
+        // before timer
+        yield return new WaitForSeconds(2f);
+        //after timer
         Destroy(gameObject);
     }
 }

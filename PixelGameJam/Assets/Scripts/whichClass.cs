@@ -27,6 +27,10 @@ public class whichClass : StateMachineBehaviour
         {
             animator.SetBool("isArcher", true);
         }
+        if (adventurer.isDead == true)
+        {
+            animator.SetBool("isDead", true);
+        }
     }
 
 

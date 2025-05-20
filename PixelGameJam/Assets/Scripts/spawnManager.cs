@@ -14,7 +14,7 @@ public class spawnManager : MonoBehaviour
     //Runs once telling the spawn function to run every 5 seconds
     void Start()
     {
-        InvokeRepeating("Spawn", 0f, 30f);
+        InvokeRepeating("Spawn", 0f, 20f);
         pages = 0;
     }
 
