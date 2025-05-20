@@ -54,4 +54,9 @@ public class adventurer : MonoBehaviour
              adventurerSpriteRenderer.sprite = archer;
          }
     }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }
