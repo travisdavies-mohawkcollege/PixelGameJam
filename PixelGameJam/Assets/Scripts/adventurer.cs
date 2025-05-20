@@ -10,6 +10,7 @@ public class adventurer : MonoBehaviour
     public int agil;
     public int strg;
     public int greed;
+    public int hp;
     public Sprite mage;
     public Sprite rogue;
     public Sprite fighter;
@@ -30,6 +31,7 @@ public class adventurer : MonoBehaviour
         agil = data.agil;
         strg = data.strg;
         greed = data.greed;
+        hp = 3;
     }
     private void Start()
     {
