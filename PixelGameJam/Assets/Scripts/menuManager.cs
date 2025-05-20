@@ -59,6 +59,7 @@ public class MenuManager : MonoBehaviour
             {
                 pickingTrap = false;
             }
+            Time.timeScale = 1f;
             //Time.timeScale = 0f; Pauses time but I think we want time to keep going in town
 
         }
@@ -72,7 +73,7 @@ public class MenuManager : MonoBehaviour
             dungeonUI.blocksRaycasts = true;
             boardOpen = false;
             //Other useful code                 
-            //Time.timeScale = 0f               (sets time to 0%)
+            Time.timeScale = 1f;
             //(GameObject).SetActive(true);     (sets object to inactive)
             //for if picking trap
             if (pickingTrap)
@@ -144,7 +145,7 @@ public class MenuManager : MonoBehaviour
             boardOpen = false;
             settingsOpen = false;
             pauseOpen = false;
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
         }
     }
 
@@ -190,7 +191,7 @@ public class MenuManager : MonoBehaviour
             boardOpen = false;
             settingsOpen = false;
             pauseOpen = false;
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
         }
     }
 
