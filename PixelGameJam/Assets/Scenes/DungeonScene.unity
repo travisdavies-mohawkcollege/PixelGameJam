@@ -1960,6 +1960,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 355727774194653945, guid: bc4a19425258c0c4a9891776a0adcd24, type: 3}
   m_PrefabInstance: {fileID: 324149666}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!1 &912236978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,6 +2106,7 @@ MonoBehaviour:
   mainTheme: {fileID: 8300000, guid: f6c46bfe96e28594bbfca720145f43f4, type: 3}
   overworldTheme: {fileID: 0}
   boardTheme: {fileID: 0}
+
 --- !u!1 &930427372
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,8 +4363,10 @@ Transform:
   - {fileID: 3404360}
   - {fileID: 561088307}
   - {fileID: 1543456575}
+
   - {fileID: 912236979}
   - {fileID: 496839394}
+
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1343658815391507892
