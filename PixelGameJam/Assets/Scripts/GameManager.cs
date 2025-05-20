@@ -6,17 +6,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int gameState = 0; // 0 = main menu, 1 = dungeon, 2 = pause menu, 3 = raid, 4 = board
+    public int gameState = 0; // 0 = gameover, 1 = dungeon, 2 =
+                              // menu, 3 = raid, 4 = board, 5 = win
     public int gold;
     public int souls;
     public int day;
+    public int unlock;
 
     //gameObjects
     public GameObject soulBarManager;
+    public DungeonManager dungeonManager;
     public Text statCounter;
 
     void Start()
     {
+        gameState = 2;
         gold = 10;
         souls = 0;
        // soulsBar.fillAmount = 0f;
@@ -27,10 +31,21 @@ public class GameManager : MonoBehaviour
     {
         soulBarManager.GetComponent<soulsBar>().souls = souls;
         soulBarManager.GetComponent<soulsBar>().UpdateProgressBar();
-        statCounter.text = "Day: " +day + "     Gold: " + gold + "      Souls: " + souls;
+        unlock = dungeonManager.GetComponent<DungeonManager>().unlockCost;
+        statCounter.text = "Cost: " + unlock + "    Gold: " + gold + "     Souls: " + souls;
+        if(gold <= 0)
+        {
+            //game over
+            gameState = 0;
+        }
         if (gameState == 0)
         {
             
+        }
+        if (souls >= 100)
+        {
+            //win game
+            gameState = 5;
         }
         if (gameState == 1)
         {

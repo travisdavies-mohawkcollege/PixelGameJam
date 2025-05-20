@@ -11,6 +11,9 @@ public class DungeonManager : MonoBehaviour
     bool raiding = false;
     bool moving;
     bool facingTrap = false;
+    bool faced;
+    bool checkForTrap;
+    int trapsOwned = 0;
 
     // Prefabs and Refrences
     public GameObject dungeonPrefab;
@@ -69,7 +72,7 @@ public class DungeonManager : MonoBehaviour
     public int spawnToUse = 0;
 
     //Variables for locked rooms
-    int unlockCost;
+    public int unlockCost;
 
     //mask layer for deciding whats interactable
     public LayerMask raycastLayerMask;
@@ -137,7 +140,7 @@ public class DungeonManager : MonoBehaviour
     {
         if (GameManager.gameObject.GetComponent<GameManager>().gameState == 1)
         {
-
+            StopAllCoroutines();
 
             if (roomCount <= roomsOwned)
             {
@@ -168,7 +171,7 @@ public class DungeonManager : MonoBehaviour
         if (newRoom.tag == "isLocked")
         {
             isLocked = true;
-            unlockCost = 1;
+            //unlockCost = 1;
 
         }
         //create lock on new room, locks start at 0
@@ -207,7 +210,8 @@ public class DungeonManager : MonoBehaviour
                         roomLocks[lockToBreak].gameObject.SetActive(false);
                         lockToBreak += 1;
                         roomsOwned += 1;
-                        
+                        trapsOwned += 1;
+
                     }
                     else
                     {
@@ -291,15 +295,15 @@ public class DungeonManager : MonoBehaviour
         raidIndex = roomCount - 1;
         SetAdventurer();
         StartCoroutine(RaidCoroutine());
-        if (adventurersAlive == 0)
-        {
-            Debug.Log("No adventurers alive");
-            GameManager.GetComponent<GameManager>().gameState = 1;
-        }
-        else
-        {
-            Debug.Log("Adventurers alive: " + adventurersAlive);
-        }
+      //  if (adventurersAlive == 0)
+      //  {
+      //      Debug.Log("No adventurers alive");
+      //      GameManager.GetComponent<GameManager>().gameState = 1;
+      //  }
+      //  else
+     //   {
+     //       Debug.Log("Adventurers alive: " + adventurersAlive);
+    //    }
     }
 
     IEnumerator RaidCoroutine()
@@ -314,10 +318,13 @@ public class DungeonManager : MonoBehaviour
             }
             while (facingTrap)
             {
+                
                 FaceTrap();
+
                 yield return null;
             }
-            raidIndex -= 1;
+
+            //raidIndex -= 1;
             Debug.Log("Raid Index: " + raidIndex);
         }
         yield return new WaitForSeconds(3f);
@@ -325,32 +332,43 @@ public class DungeonManager : MonoBehaviour
 
     public void MoveAdventurer()
     {
-
+        
         //move to next room
         GameObject activeAdventurer = GameObject.FindGameObjectWithTag("Adventurer");
+        if (trapsOwned == 0)
+        {
+            Debug.Log("Raid complete, player loses");
+            GameManager.GetComponent<GameManager>().gameState = 1;
+           // GameManager.GetComponent<GameManager>().souls--;
+            GameManager.GetComponent<GameManager>().gold -= adventurerGreed;
+            
+            Destroy(activeAdventurer);
+        }
         Debug.Log("Active Adventurer: " + activeAdventurer);
         //Debug.Log("Moving to next room: " + rooms[raidIndex - 1].transform.GetChild(8).transform.position);
-        Vector3 nextPos = new Vector3(rooms[raidIndex].transform.GetChild(8).transform.position.x, activeAdventurer.transform.position.y, 0);
-        activeAdventurer.transform.position = Vector3.MoveTowards(activeAdventurer.transform.position, nextPos, 1f * Time.deltaTime);
+        Vector3 nextPos = new Vector3(rooms[raidIndex - 1].transform.GetChild(8).transform.position.x, activeAdventurer.transform.position.y, 0);
+        activeAdventurer.transform.position = Vector3.MoveTowards(activeAdventurer.transform.position, nextPos, 0.5f * Time.deltaTime);
         Debug.Log("Moving to next room");
         if (activeAdventurer.transform.position.x == nextPos.x || activeAdventurer.transform.position.x > -1.38)
         {
             moving = false;
         }
         else { }
-        if (rooms[raidIndex].tag == "hasTrap")
+
+        if (rooms[raidIndex - 1].tag == "hasTrap")
         {
-            Debug.Log("trap detected in room " + rooms[raidIndex]);
+            Debug.Log("trap detected in room " + rooms[raidIndex - 1]);
             facingTrap = true;
         }
         else
         {
-            raidIndex -= 1;
+            
+            faced = false;
             if (raidIndex <= 1 && activeAdventurer.transform.position.x > -1.38f && !moving)
             {
                 Debug.Log("Raid complete, player loses");
                 GameManager.GetComponent<GameManager>().gameState = 1;
-                GameManager.GetComponent<GameManager>().souls--;
+               // GameManager.GetComponent<GameManager>().souls--;
                 GameManager.GetComponent<GameManager>().gold -= adventurerGreed;
                 Destroy(activeAdventurer);
             }
@@ -358,6 +376,7 @@ public class DungeonManager : MonoBehaviour
             {
                 Debug.Log("No trap detected in room " + rooms[raidIndex]);
                 facingTrap = false;
+                moving = true;
             }
         }
     }
@@ -366,17 +385,18 @@ public class DungeonManager : MonoBehaviour
     {
         Debug.Log("Facing Trap");
         Debug.Log("Adv Stats : " + adventurerAgl + " " + adventurerStr + " " + adventurerInt);
+        Debug.Log("raid index "  +raidIndex);
         Debug.Log("Trap Stats: " + trapAgl[raidIndex - 1] + " " + trapStr[raidIndex - 1] + " " + trapInt[raidIndex - 1]);
         //compare stats
-        if (adventurerAgl > trapAgl[raidIndex])
+        if (adventurerAgl > trapAgl[raidIndex - 1])
         {
             aglPriority = true;
         }
-        if (adventurerStr > trapStr[raidIndex])
+        if (adventurerStr > trapStr[raidIndex - 1])
         {
             strPriority = true;
         }
-        if (adventurerInt > trapInt[raidIndex])
+        if (adventurerInt > trapInt[raidIndex - 1])
         {
             intPriority = true;
         }
@@ -451,15 +471,15 @@ public class DungeonManager : MonoBehaviour
         //check goal to beat
         if (rollWith == 1)
         {
-            if (adventurerAgl > trapAgl[raidIndex])
+            if (adventurerAgl > trapAgl[raidIndex - 1])
             {
                 difficultyCheck = 5;
             }
-            if (adventurerAgl == trapAgl[raidIndex])
+            if (adventurerAgl == trapAgl[raidIndex - 1])
             {
                 difficultyCheck = 10;
             }
-            if (adventurerAgl < trapAgl[raidIndex])
+            if (adventurerAgl < trapAgl[raidIndex - 1])
             {
                 difficultyCheck = 15;
             }
@@ -467,15 +487,15 @@ public class DungeonManager : MonoBehaviour
         }
         else if (rollWith == 2)
         {
-            if (adventurerStr > trapStr[raidIndex])
+            if (adventurerStr > trapStr[raidIndex - 1])
             {
                 difficultyCheck = 5;
             }
-            if (adventurerStr == trapStr[raidIndex])
+            if (adventurerStr == trapStr[raidIndex - 1])
             {
                 difficultyCheck = 10;
             }
-            if (adventurerStr < trapStr[raidIndex])
+            if (adventurerStr < trapStr[raidIndex - 1])
             {
                 difficultyCheck = 15;
             }
@@ -483,15 +503,15 @@ public class DungeonManager : MonoBehaviour
         }
         else if (rollWith == 3)
         {
-            if (adventurerInt > trapInt[raidIndex])
+            if (adventurerInt > trapInt[raidIndex - 1])
             {
                 difficultyCheck = 5;
             }
-            if (adventurerInt == trapInt[raidIndex])
+            if (adventurerInt == trapInt[raidIndex - 1])
             {
                 difficultyCheck = 10;
             }
-            if (adventurerInt < trapInt[raidIndex])
+            if (adventurerInt < trapInt[raidIndex - 1])
             {
                 difficultyCheck = 15;
             }
@@ -507,19 +527,25 @@ public class DungeonManager : MonoBehaviour
                 Debug.Log("Success");
                 facingTrap = false;
                 moving = true;
+                raidIndex -= 1;
+                // faced = true;
+
             }
             else
             {
                 Debug.Log("Failure");
                 adventurerHp -= 1;
-
+               // faced = true;
+                Debug.Log("Trap calculations done");
                 //kill adventurer
                 GameObject activeAdventurer = GameObject.FindGameObjectWithTag("Adventurer");
                 DestroyImmediate(activeAdventurer);
                 Debug.Log("Adventurer is dead");
                 GameManager.GetComponent<GameManager>().souls++;
+                GameManager.GetComponent<GameManager>().gold += adventurerGreed / 2;
                 facingTrap = false;
                 raiding = false;
+                GameManager.GetComponent<GameManager>().gameState = 1;
 
             }
         }
