@@ -395,17 +395,17 @@ public class DungeonManager : MonoBehaviour
         Debug.Log("Facing Trap");
         Debug.Log("Adv Stats : " + adventurerAgl + " " + adventurerStr + " " + adventurerInt);
         Debug.Log("raid index "  +raidIndex);
-        Debug.Log("Trap Stats: " + trapAgl[raidIndex] + " " + trapStr[raidIndex] + " " + trapInt[raidIndex]);
+        Debug.Log("Trap Stats: " + trapAgl.Count + " " + trapStr.Count + " " + trapInt.Count);
         //compare stats
-        if (adventurerAgl > trapAgl[raidIndex])
+        if (adventurerAgl > trapAgl.Count)
         {
             aglPriority = true;
         }
-        if (adventurerStr > trapStr[raidIndex])
+        if (adventurerStr > trapStr.Count)
         {
             strPriority = true;
         }
-        if (adventurerInt > trapInt[raidIndex])
+        if (adventurerInt > trapInt.Count)
         {
             intPriority = true;
         }
@@ -480,15 +480,15 @@ public class DungeonManager : MonoBehaviour
         //check goal to beat
         if (rollWith == 1)
         {
-            if (adventurerAgl > trapAgl[raidIndex])
+            if (adventurerAgl > trapAgl.Count)
             {
                 difficultyCheck = 5;
             }
-            if (adventurerAgl == trapAgl[raidIndex - 1])
+            if (adventurerAgl == trapAgl.Count)
             {
                 difficultyCheck = 10;
             }
-            if (adventurerAgl < trapAgl[raidIndex - 1])
+            if (adventurerAgl < trapAgl.Count)
             {
                 difficultyCheck = 15;
             }
@@ -496,15 +496,15 @@ public class DungeonManager : MonoBehaviour
         }
         else if (rollWith == 2)
         {
-            if (adventurerStr > trapStr[raidIndex - 1])
+            if (adventurerStr > trapStr.Count)
             {
                 difficultyCheck = 5;
             }
-            if (adventurerStr == trapStr[raidIndex - 1])
+            if (adventurerStr == trapStr.Count)
             {
                 difficultyCheck = 10;
             }
-            if (adventurerStr < trapStr[raidIndex - 1])
+            if (adventurerStr < trapStr.Count)
             {
                 difficultyCheck = 15;
             }
@@ -512,15 +512,15 @@ public class DungeonManager : MonoBehaviour
         }
         else if (rollWith == 3)
         {
-            if (adventurerInt > trapInt[raidIndex - 1])
+            if (adventurerInt > trapInt.Count)
             {
                 difficultyCheck = 5;
             }
-            if (adventurerInt == trapInt[raidIndex - 1])
+            if (adventurerInt == trapInt.Count)
             {
                 difficultyCheck = 10;
             }
-            if (adventurerInt < trapInt[raidIndex - 1])
+            if (adventurerInt < trapInt.Count)
             {
                 difficultyCheck = 15;
             }
